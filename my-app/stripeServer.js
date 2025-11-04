@@ -61,7 +61,7 @@ app.post("/create_connected", async (req, res) => {
           ip: "8.8.8.8", // any test IP
         },
     });
-    // res.json({account}); 
+    res.json({account}); 
   } catch (err){
     console.error(err)
     res.status(500).json({ error: err.message });

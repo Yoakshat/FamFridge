@@ -34,7 +34,6 @@ export default function Signup() {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       let kidAccountId = null; 
-      
 
       // Create Stripe customer
       const res = await fetch("http://localhost:3000/create_customer", {
@@ -62,7 +61,7 @@ export default function Signup() {
         // Add the kid as a friend 
         // Search for users with this email "kidEmail"
         // then save this friend id
-        // Below add this id to our friends list (bidrectional)
+        // Below add this id to our friends list (bidirectional)
         const usersQuery = await getDocs(
             query(collection(db, "users"), where("email", "==", kidEmail))
         );
@@ -105,6 +104,22 @@ export default function Signup() {
         } else {
             console.log(`No user found with email: ${kidEmail}`);
         }
+      } else {
+        await setDoc(doc(db, "users", user.uid), {
+              kidEmail: kidEmail || null,
+              kidAccountId: kidAccountId, 
+              customerId: customer.id, 
+              email,
+              name: name.trim(),
+              isKid,
+              balance: 0,
+              createdImages: [],
+              ownedImages: [],
+              fridge: [],
+              receivedImages: [],
+              friends: [],
+              createdAt: Date.now()
+          });
       }
 
       if(!isKid){ 
