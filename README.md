@@ -5,7 +5,7 @@ With families spread across countries, grandparents don't get to see their grand
 https://www.youtube.com/watch?v=h2Ka5tOyaqY&t=2s
 
 <h1>Future Plans</h3>
-Make these artworks real stickers/magnets that we can ship to grandparents. Grandparents can pay for these. This will also reward kids' creativity and give them an allowance. 
+Make these artworks real stickers/magnets that we can ship to grandparents. 
 
 <h1>Technologies</h1>
 React + Typescript + Nodejs
